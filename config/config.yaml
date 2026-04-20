@@ -1,0 +1,14 @@
+base_url: "https://www.geeksforgeeks.org/"
+api_base_url: "https://jsonplaceholder.typicode.com"
+
+browser: "chrome"
+
+timeouts:
+  implicit_wait: 5
+  explicit_wait: 10
+
+env: "qa"
+
+credentials:
+  username: "test_user"
+  password: "test_password"
