@@ -1,18 +1,12 @@
 from selenium import webdriver
-from utils.config_reader import load_config
+from selenium.webdriver.chrome.options import Options
 
 def get_driver():
-    config = load_config()
-    browser = config["browser"]
+    options = Options()
+    
+    options.add_argument("--headless=new")   # IMPORTANT
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
-    if browser == "chrome":
-        driver = webdriver.Chrome()
-    elif browser == "firefox":
-        driver = webdriver.Firefox()
-    else:
-        raise Exception(f"Browser {browser} not supported")
-
-    driver.maximize_window()
-    driver.implicitly_wait(config["timeouts"]["implicit_wait"])
-
+    driver = webdriver.Chrome(options=options)
     return driver
